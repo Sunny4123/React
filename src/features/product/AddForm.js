@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+
 function AddForm({ addProduct }) {
   const [name, setName] = useState('');
   const [imageURL, setImageURL] = useState('');
   const [type, setType] = useState('');
-
+  
   function onSubmit(event) {
     event.preventDefault();
     addProduct({ name, type, imageURL });
