@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function AddForm({ addProduct }) {
   const [name, setName] = useState('');
   const [imageURL, setImageURL] = useState('');
   const [type, setType] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   
   function onSubmit(event) {
     event.preventDefault();
-    addProduct({ name, type, imageURL });
+    dispatch(addProduct({ name, type, imageURL }));
+    navigate('/');
   }
 
   return (
